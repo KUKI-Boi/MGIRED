@@ -1,0 +1,174 @@
+@import "tailwindcss";
+
+:root {
+  --brand-bg: #0a0a0a;
+  --brand-bg-light: #111111;
+  --brand-text: #f0ece4;
+  --brand-accent: #d4af37; /* Warm gold */
+  --brand-muted: rgba(240, 236, 228, 0.6);
+  --hero-overlay: rgba(0, 0, 0, 0.55);
+}
+
+:root[data-theme="light"] {
+  --brand-bg: #faf9f6; /* Elegant warm linen */
+  --brand-bg-light: #ffffff; /* pure crisp white */
+  --brand-text: #111111; /* charcoal dark text */
+  --brand-accent: #a37f1a; /* rich dark gold for legibility */
+  --brand-muted: rgba(17, 17, 17, 0.6);
+  --hero-overlay: rgba(250, 249, 246, 0.65);
+}
+
+@theme {
+  --font-serif: "Playfair Display", serif;
+  --font-sans: "Inter", "Neue Haas Grotesk", sans-serif;
+  
+  --color-brand-bg: var(--brand-bg);
+  --color-brand-bg-light: var(--brand-bg-light);
+  --color-brand-text: var(--brand-text);
+  --color-brand-accent: var(--brand-accent);
+  --color-brand-muted: var(--brand-muted);
+}
+
+/* Custom easing class for luxury feel */
+@utility ease-luxury {
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Global Styles */
+body {
+  background-color: var(--color-brand-bg);
+  color: var(--color-brand-text);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+  transition: background-color 300ms ease, color 300ms ease;
+}
+
+/* Scroll reveal classes to be toggled by JS IntersectionObserver */
+.reveal-hidden {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 800ms cubic-bezier(0.22, 1, 0.36, 1), transform 800ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.reveal-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Base link behavior */
+a.link-underline {
+  position: relative;
+  text-decoration: none;
+}
+
+a.link-underline::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 1px;
+  bottom: -2px;
+  left: 0;
+  background-color: currentColor;
+  transition: width 300ms ease;
+}
+
+a.link-underline:hover::after {
+  width: 100%;
+}
+
+/* Stagger delays */
+.delay-100 { transition-delay: 100ms; }
+.delay-200 { transition-delay: 200ms; }
+.delay-300 { transition-delay: 300ms; }
+.delay-400 { transition-delay: 400ms; }
+.delay-500 { transition-delay: 500ms; }
+
+/* Custom keyframes */
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+/* Light theme overrides for translucent components and opacity states */
+:root[data-theme="light"] .border-white\/5,
+:root[data-theme="light"] .border-white\/10,
+:root[data-theme="light"] .border-white\/20,
+:root[data-theme="light"] .border-white\/30 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+:root[data-theme="light"] .divide-white\/5,
+:root[data-theme="light"] .divide-white\/10 {
+  border-color: rgba(0, 0, 0, 0.08) !important;
+}
+
+:root[data-theme="light"] .text-white\/30 {
+  color: rgba(0, 0, 0, 0.3) !important;
+}
+
+:root[data-theme="light"] .text-white\/40 {
+  color: rgba(0, 0, 0, 0.4) !important;
+}
+
+:root[data-theme="light"] .text-white\/50 {
+  color: rgba(0, 0, 0, 0.5) !important;
+}
+
+:root[data-theme="light"] .text-white\/60 {
+  color: rgba(0, 0, 0, 0.6) !important;
+}
+
+:root[data-theme="light"] .text-brand-text\/50 {
+  color: rgba(17, 17, 17, 0.5) !important;
+}
+
+:root[data-theme="light"] .text-brand-text\/60 {
+  color: rgba(17, 17, 17, 0.6) !important;
+}
+
+:root[data-theme="light"] .text-brand-text\/70 {
+  color: rgba(17, 17, 17, 0.7) !important;
+}
+
+:root[data-theme="light"] .text-brand-text\/80 {
+  color: rgba(17, 17, 17, 0.8) !important;
+}
+
+:root[data-theme="light"] .bg-white\/5 {
+  background-color: rgba(0, 0, 0, 0.03) !important;
+}
+
+:root[data-theme="light"] .bg-white\/10 {
+  background-color: rgba(0, 0, 0, 0.05) !important;
+}
+
+:root[data-theme="light"] .bg-brand-bg\/85 {
+  background-color: rgba(250, 249, 246, 0.85) !important;
+}
+
+:root[data-theme="light"] .bg-brand-bg-light {
+  background-color: #ffffff !important;
+}
+
+:root[data-theme="light"] .text-white\/\[0\.03\] {
+  color: rgba(0, 0, 0, 0.03) !important;
+}
+
+/* Global Image Hover Glow Effect */
+.hover-glow-image {
+  transition: transform 0.45s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.45s ease, border-color 0.45s ease !important;
+}
+
+.hover-glow-image:hover {
+  transform: scale(1.02) translate3d(0, 0, 0) !important;
+  box-shadow: 0px 0px 35px 5px rgba(197, 160, 89, 0.5) !important;
+  border-color: rgba(197, 160, 89, 0.9) !important;
+  z-index: 10;
+}
+
+html[data-theme="light"] .hover-glow-image:hover {
+  box-shadow: 0px 0px 40px 8px rgba(197, 160, 89, 0.5) !important;
+  border-color: rgba(197, 160, 89, 1) !important;
+}
