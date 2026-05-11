@@ -63,13 +63,13 @@ export function Navbar() {
       >
         <div className="max-w-[1320px] mx-auto flex items-center justify-between gap-4">
           {/* Logo and Branding */}
-          <a href="#" className="flex items-center gap-4 md:gap-5 group shrink-0">
+          <a href="#" className="flex items-center gap-1.5 sm:gap-4 group shrink-0">
             {/* Karnataka Emblem on the Left */}
             <div className="flex items-center justify-center">
               <img 
                 src="/karnataka_logo.png" 
                 alt="Karnataka Emblem" 
-                className="h-10 md:h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-md" 
+                className="h-8 sm:h-10 md:h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-md" 
               />
             </div>
 
@@ -77,11 +77,11 @@ export function Navbar() {
             <div className="hidden xl:block h-8 w-[1px] bg-white/20 dark:bg-white/20" />
 
             {/* Centered Institution Name */}
-            <div className="hidden xl:flex flex-col justify-center text-center">
-              <span className="font-serif text-[11px] md:text-xs tracking-wide text-brand-text/95 leading-tight max-w-[260px] font-medium">
+            <div className="flex flex-col justify-center text-center">
+              <span className="font-serif brand-title-text text-brand-text/95 leading-tight font-medium">
                 Mahatma Gandhi Institute of Rural Energy and Development
               </span>
-              <span className="font-sans text-[8px] tracking-[0.2em] uppercase text-brand-accent mt-0.5 font-semibold">
+              <span className="font-sans brand-subtitle-text uppercase text-brand-accent mt-0.5 font-semibold">
                 Government of Karnataka
               </span>
             </div>
@@ -94,7 +94,7 @@ export function Navbar() {
               <img 
                 src="/mgired_logo.png" 
                 alt="MGIRED Logo" 
-                className="h-10 md:h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-md" 
+                className="h-8 sm:h-10 md:h-12 w-auto object-contain transition-transform duration-500 group-hover:scale-105 drop-shadow-md" 
               />
             </div>
           </a>
